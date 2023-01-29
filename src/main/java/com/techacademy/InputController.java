@@ -18,7 +18,7 @@ public class InputController {
 
 	@PostMapping("/input")
 	public String postForm(@RequestParam("val") String val, Model model) {
-		model.addAttribute("msg", "入力された値は「" + val + "」です。");
+		model.addAttribute("msg", "前回入力された値は「" + val + "」でした。");
 		model.addAttribute("val", val);
 		return "input";
 	}
