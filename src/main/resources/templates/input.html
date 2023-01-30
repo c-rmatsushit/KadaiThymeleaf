@@ -7,10 +7,13 @@
 <body>
 	<h1>Thymeleaf 課題</h1>
 	<h2>入力画面</h2>
-	<p th:text="${msg}"></p>
-	<form method="post" action="/input">
+	<p th:if="${val == null}" th:text="${msg2}"></p>
+	<p th:if="${val != null}" th:text="${msg3}"></p>
+	<form method="post" action=/input>
 		<input type="text" name="val" th:value="${val}">
-		<button type="submit">送信</button>
+		<p>
+			<button th:href="@{/output/(previous=${val})}" type="submit">送信</button>
+		</p>
 	</form>
 </body>
 </html>
