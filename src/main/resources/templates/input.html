@@ -7,8 +7,8 @@
 <body>
 	<h1>Thymeleaf 課題</h1>
 	<h2>入力画面</h2>
-	<p th:if="${val == null}" th:text="${msg2}"></p>
-	<p th:if="${val != null}" th:text="${msg3}"></p>
+	<p th:if="${previous == null}" th:text="${msg2}"></p>
+	<p th:unless="${previous != null}" th:text="${msg3}"></p>
 	<form method="post" action=/input>
 		<input type="text" name="val" th:value="${val}">
 		<p>

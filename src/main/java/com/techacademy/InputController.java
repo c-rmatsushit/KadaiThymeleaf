@@ -1,7 +1,5 @@
 package com.techacademy;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InputController {
 
 	@GetMapping("/input")
-	public String getInput(@RequestParam("previous") String previous, Model model) {
+	public String getInput(@RequestParam(name = "previous",defaultValue = "") String previous,Model model) {
 		// 文字列をModelに登録
 		model.addAttribute("msg2", "値を入力してください。");
 		model.addAttribute("msg3", "前回入力された値は" + previous + " でした。");
@@ -25,6 +23,6 @@ public class InputController {
 	public String getInput(@RequestParam("val") String val, Model model, RedirectAttributes redirectAttributes) {
 		model.addAttribute("val", val);
 		redirectAttributes.addFlashAttribute("val", val);
-		return "redirectz:output";
+		return "redirect:output";
 	}
 }
