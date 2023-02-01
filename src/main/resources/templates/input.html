@@ -13,7 +13,7 @@
 	<form method="post" action=/input>
 		<input type="text" name="val" th:value="${val}">
 		<p>
-			<button th:href="@{/output/(previous=${val})}" type="submit">送信</button>
+			<button th:href="@{/output/(previous=${val})}" type="submit" th:text="#{content.sent}"></button>
 		</p>
 	</form>
 </body>
