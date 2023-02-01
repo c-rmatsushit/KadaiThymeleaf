@@ -12,10 +12,9 @@ public class InputController {
 
 	@GetMapping("/input")
 	public String getInput(@RequestParam(name = "previous",defaultValue = "") String previous,Model model) {
-		// 文字列をModelに登録
+		model.addAttribute("previous", previous);
 		model.addAttribute("msg2", "値を入力してください。");
 		model.addAttribute("msg3", "前回入力された値は" + previous + " でした。");
-		// formに画面遷移
 		return "input";
 	}
 
